@@ -78,11 +78,11 @@ export default function Home() {
             Konversi <span className="text-blue-600">Gambar ke PDF</span> Online
             Gratis & Cepat
           </h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto text-justify md:text-center">
             Gabungkan foto JPG, PNG, dan WebP menjadi satu file PDF berkualitas
-            tinggi. Ideal untuk{" "}
+            tinggi secara instan. Ideal untuk memenuhi syarat{" "}
             <strong>dokumen CPNS, lamaran kerja, dan tugas sekolah</strong>{" "}
-            tanpa perlu aplikasi tambahan.
+            tanpa perlu instal aplikasi tambahan atau registrasi.
           </p>
         </div>
 
@@ -195,17 +195,18 @@ export default function Home() {
                 <CheckCircle2 className="text-green-500" /> Mengapa Memilih
                 Img2PDF?
               </h3>
-              <p className="mb-4">
+              <p className="mb-4 text-justify">
                 Banyak pengguna merasa kesulitan saat harus mengunggah berkas
-                pendaftaran <strong>CPNS 2024</strong> atau{" "}
+                pendaftaran <strong>CPNS 2026</strong> atau{" "}
                 <strong>PPPK</strong> karena syarat dokumen yang harus dalam
                 format PDF. Alat konversi kami dirancang khusus untuk
-                menyelesaikan masalah ini dengan sekali klik.
+                menyelesaikan masalah ini dengan sekali klik secara gratis.
               </p>
-              <p>
+              <p className="text-justify">
                 Kami menjamin kualitas gambar tetap tajam namun dengan ukuran
-                file yang optimal. Tidak perlu khawatir dengan privasi, karena
-                kami tidak menyimpan data Anda di server.
+                file yang tetap optimal untuk diunggah. Anda tidak perlu khawatir 
+                dengan keamanan data, karena privasi Anda adalah prioritas kami 
+                dengan sistem tanpa simpan di server.
               </p>
             </div>
             <div className="bg-blue-50 p-8 rounded-3xl border border-blue-100">
@@ -218,27 +219,27 @@ export default function Home() {
                   <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shrink-0 mt-1">
                     1
                   </span>
-                  <span>
+                  <span className="text-justify">
                     <strong>Unggah Gambar:</strong> Pilih foto ijazah, KTP, atau
-                    dokumen lainnya dari galeri ponsel atau PC.
+                    dokumen lainnya dari galeri ponsel atau komputer Anda.
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shrink-0 mt-1">
                     2
                   </span>
-                  <span>
+                  <span className="text-justify">
                     <strong>Urutkan:</strong> Pastikan urutan foto sudah benar
-                    sesuai halaman dokumen yang diinginkan.
+                    sesuai dengan halaman dokumen yang ingin digabungkan.
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shrink-0 mt-1">
                     3
                   </span>
-                  <span>
+                  <span className="text-justify">
                     <strong>Unduh:</strong> Klik tombol konversi dan simpan file
-                    PDF hasil gabungan foto Anda.
+                    PDF hasil gabungan foto Anda secara instan.
                   </span>
                 </li>
               </ul>
@@ -246,37 +247,36 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+            <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 transition-transform hover:-translate-y-1">
               <Lock className="text-blue-600 mb-4" size={32} />
-              {/* Menggunakan text-black dan font-bold untuk efek hitam pekat */}
               <h4 className="font-bold text-xl mb-2 text-black">
                 Aman & Privat
               </h4>
-              <p className="text-slate-500 text-sm">
+              <p className="text-slate-500 text-sm text-justify">
                 Semua pemrosesan dilakukan di sisi klien (browser). Gambar Anda
-                tidak pernah meninggalkan perangkat Anda.
+                tidak pernah meninggalkan perangkat Anda, menjamin kerahasiaan dokumen.
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+            <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 transition-transform hover:-translate-y-1">
               <FileType className="text-blue-600 mb-4" size={32} />
               <h4 className="font-bold text-xl mb-2 text-black">
                 Banyak Format
               </h4>
-              <p className="text-slate-500 text-sm">
+              <p className="text-slate-500 text-sm text-justify">
                 Mendukung konversi JPG ke PDF, PNG ke PDF, dan bahkan format
-                WebP terbaru dari Google.
+                WebP terbaru dari Google dengan kualitas hasil yang jernih.
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+            <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 transition-transform hover:-translate-y-1">
               <Zap className="text-blue-600 mb-4" size={32} />
               <h4 className="font-bold text-xl mb-2 text-black">
                 Tanpa Watermark
               </h4>
-              <p className="text-slate-500 text-sm">
+              <p className="text-slate-500 text-sm text-justify">
                 Kami menyediakan layanan gratis 100% tanpa watermark atau tanda
-                air pada hasil dokumen PDF Anda.
+                air pada hasil dokumen PDF Anda, siap pakai untuk keperluan resmi.
               </p>
             </div>
           </div>
