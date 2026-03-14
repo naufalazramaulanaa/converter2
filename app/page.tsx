@@ -62,7 +62,7 @@ export default function Home() {
       {/* Navbar */}
       <nav className="border-b px-6 py-4 flex justify-between items-center bg-white sticky top-0 z-50 shadow-sm">
         <span className="text-xl font-bold text-blue-600 flex items-center gap-2">
-          <Zap size={24} fill="currentColor" /> Img2PDF Pro
+          <Zap size={24} fill="currentColor" /> imgconverterpdf
         </span>
         <div className="hidden md:flex gap-4 text-sm font-medium text-slate-600">
           <span>JPG ke PDF</span>
