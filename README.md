@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ImgConverterPDF: Streamlined Visual-to-Document Transformation
 
-## Getting Started
+[![Vercel Deployment](https://img.shields.io/badge/Deployment-Vercel-black?logo=vercel)](https://imgconverterpdf.vercel.app/)
+[![Tech Stack](https://img.shields.io/badge/Stack-JavaScript%20%7C%20PDF--Lib-orange)](https://github.com/naufalazramaulanaa)
 
-First, run the development server:
+## 📌 Overview
+In the era of digital documentation, the ability to convert disparate image formats into a unified, portable document format (PDF) is essential for professional and academic efficiency. **ImgConverterPDF** provides a seamless, web-based solution for transforming various visual extensions (JPG, PNG, WebP) into high-quality PDF files.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Key Features
+- **Multi-Format Support:** Seamlessly handles diverse image extensions for comprehensive conversion.
+- **Client-Side Processing:** Prioritizes user privacy and data security by performing conversions directly within the browser, minimizing server-side latency.
+- **Responsive Architecture:** Optimized for both mobile and desktop environments, ensuring accessibility across the digital ecosystem.
+- **Intuitive UX:** A minimalist interface designed for rapid task execution and minimal cognitive load.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Technical Objectives
+- **Optimizing Document Integrity:** Ensuring that image resolution and quality are preserved during the PDF encapsulation process.
+- **Standardization:** Creating industry-standard PDF outputs compatible with all major document readers and government/corporate submission portals.
+- **Workflow Efficiency:** Reducing the time required for document preparation through a simplified drag-and-drop or upload mechanism.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tech Stack
+- **Frontend:** Next.js / React (Framework)
+- **Styling:** Tailwind CSS (Responsive Design)
+- **Core Engine:** PDF-lib / JS-PDF (Document generation)
+- **Deployment:** Vercel (Cloud Infrastructure)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 Usage
+1. Access the application via [imgconverterpdf.vercel.app](https://imgconverterpdf.vercel.app/).
+2. Upload the desired image files.
+3. Execute the conversion sequence.
+4. Download the standardized PDF output instantly.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Developed with ❤️ by **Naufal Azra M.**
+*D4 Informatics Engineering Student*
