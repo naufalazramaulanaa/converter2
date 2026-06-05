@@ -15,6 +15,7 @@
     "next": "16.1.6",
     "pdfjs-dist": "^6.0.227",
     "react": "19.2.3",
+    "react-advanced-cropper": "^0.20.1",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
