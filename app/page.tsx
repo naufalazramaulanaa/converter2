@@ -123,14 +123,20 @@ export default function Home() {
     setIsConverting(true);
 
     let pdfFormat: [number, number] | string = "a4";
-    if (pasfotoSize === "2x3") pdfFormat = [2, 3];
-    else if (pasfotoSize === "3x4") pdfFormat = [3, 4];
-    else if (pasfotoSize === "4x6") pdfFormat = [4, 6];
+    const isOriginal = pasfotoSize === "original";
 
-    const doc = new jsPDF({
+    // 1. Inisialisasi dokumen jsPDF awal
+    // Jika user memilih 'original', kita akan tentukan ukurannya nanti di dalam loop per halaman
+    let doc = new jsPDF({
       orientation: "portrait",
       unit: "cm",
-      format: pdfFormat,
+      format: isOriginal
+        ? "a4"
+        : pasfotoSize === "2x3"
+          ? [2, 3]
+          : pasfotoSize === "3x4"
+            ? [3, 4]
+            : [4, 6],
     });
 
     for (let i = 0; i < images.length; i++) {
@@ -147,31 +153,63 @@ export default function Home() {
         quality,
         pasfotoSize,
       );
+
       const imgProps = doc.getImageProperties(processedDataUrl);
 
-      if (i > 0) doc.addPage(pdfFormat, "portrait");
+      // 🟢 LOGIKA UTAMA: Mengikuti ukuran gambar asli tanpa sisa putih
+      if (isOriginal) {
+        // Mengonversi piksel gambar ke ukuran centimeter (cm) dengan standar rasio kerapatan cetak
+        // Rumus sederhana: (pixel / DPI) * 2.54 cm. Di sini kita konversi agar proporsinya 1:1 pas.
+        const imgWidthCm = imgProps.width * 0.0264583333;
+        const imgHeightCm = imgProps.height * 0.0264583333;
+        const pageOrientation =
+          imgWidthCm > imgHeightCm ? "landscape" : "portrait";
 
-      const pdfMaxW = doc.internal.pageSize.getWidth();
-      const pdfMaxH = doc.internal.pageSize.getHeight();
+        if (i === 0) {
+          // Untuk halaman pertama, buat ulang dokumen dengan ukuran yang pas dengan gambar pertama
+          doc = new jsPDF({
+            orientation: pageOrientation,
+            unit: "cm",
+            format: [imgWidthCm, imgHeightCm],
+          });
+        } else {
+          // Untuk halaman kedua dan seterusnya, tambahkan halaman baru dengan ukuran gambar tersebut
+          doc.addPage([imgWidthCm, imgHeightCm], pageOrientation);
+        }
 
-      let renderW = pdfMaxW;
-      let renderH = (imgProps.height * renderW) / imgProps.width;
+        // Gambar ditempel full mulai dari koordinat (0,0) tanpa margin/sisa putih
+        doc.addImage(processedDataUrl, "JPEG", 0, 0, imgWidthCm, imgHeightCm);
+      } else {
+        // 🔵 Logika lama (Jika memilih ukuran Pasfoto spesifik seperti 2x3, 3x4, 4x6)
+        if (i > 0) {
+          let currentFormat: [number, number] | string = "a4";
+          if (pasfotoSize === "2x3") currentFormat = [2, 3];
+          else if (pasfotoSize === "3x4") currentFormat = [3, 4];
+          else if (pasfotoSize === "4x6") currentFormat = [4, 6];
+          doc.addPage(currentFormat, "portrait");
+        }
 
-      if (renderH > pdfMaxH) {
-        renderH = pdfMaxH;
-        renderW = (imgProps.width * renderH) / imgProps.height;
+        const pdfMaxW = doc.internal.pageSize.getWidth();
+        const pdfMaxH = doc.internal.pageSize.getHeight();
+
+        let renderW = pdfMaxW;
+        let renderH = (imgProps.height * renderW) / imgProps.width;
+
+        if (renderH > pdfMaxH) {
+          renderH = pdfMaxH;
+          renderW = (imgProps.width * renderH) / imgProps.height;
+        }
+
+        const posX = (pdfMaxW - renderW) / 2;
+        const posY = (pdfMaxH - renderH) / 2;
+
+        doc.addImage(processedDataUrl, "JPEG", posX, posY, renderW, renderH);
       }
-
-      const posX = (pdfMaxW - renderW) / 2;
-      const posY = (pdfMaxH - renderH) / 2;
-
-      doc.addImage(processedDataUrl, "JPEG", posX, posY, renderW, renderH);
     }
 
     doc.save("dokumen-konversi-img2pdf.pdf");
     setIsConverting(false);
   };
-
   // ==========================================
   // STATE & LOGIKA FITUR 2: PDF KE GAMBAR
   // ==========================================
